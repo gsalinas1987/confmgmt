@@ -1,0 +1,12 @@
+# File: vagrant_hosts
+# Consul cluster node hosts configuration for Vagrant
+#
+# NB: Replace the hosts below with your preferred node hostnames and continue
+#     the 'nodeN' pattern for additional nodes past 'consul3'. There should
+#     be only one node with consul_node_role = "bootstrap"
+#     Do not modify the labels (text appearing between []), however
+
+[consul_instances]
+consul1.consul consul_iface=eth1 consul_node_role=bootstrap ansible_host=18.234.233.15 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=./gsv-test-jenkins.pem
+consul2.consul consul_iface=eth1 consul_node_role=server ansible_host=34.227.78.134 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=./gsv-test-jenkins.pem
+consul3.consul consul_iface=eth1 consul_node_role=server ansible_host=52.90.148.62 ansible_ssh_user=ec2-user ansible_ssh_private_key_file=./gsv-test-jenkins.pem

@@ -1,0 +1,8 @@
+---
+- name: install epel
+  shell: "sudo amazon-linux-extras install epel -y"
+
+- name: install pip
+  yum:
+    name: python-pip
+    state: latest
