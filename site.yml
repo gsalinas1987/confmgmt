@@ -1,36 +1,12 @@
 ---
-- hosts: consul1.consul
+- hosts: all
   become: yes
   remote_user: ec2-user
   become_user: root
   
   tasks:
-  #- include_role:
-  #    name: "install_docker"
-  - include_role:
-      name: "install_pip"
-  - include_role:
-      name: "ansible-consul"
-
-- hosts: consul2.consul
-  become: yes
-  remote_user: ec2-user
-  become_user: root
-  
-  tasks:
-  - include_role:
-      name: "install_docker"
-  - include_role:
-      name: "install_pip"
-  - include_role:
-      name: "ansible-consul"
-
-- hosts: consul3.consul
-  become: yes
-  remote_user: ec2-user
-  become_user: root
-  
-  tasks:
+  - debug:
+      var: ansible_default_ipv4.address
   - include_role:
       name: "install_docker"
   - include_role:

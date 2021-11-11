@@ -1,8 +1,17 @@
 ---
-- name: install epel
-  shell: "sudo amazon-linux-extras install epel -y"
+#- name: install epel
+#  shell: "sudo amazon-linux-extras install epel -y"
 
-- name: install pip
+- name: install python2-pip
   yum:
-    name: python-pip
-    state: latest
+    name: python2-pip
+    state: present
+- name: Upgrade pip
+  pip: name=pip state=latest
+  tags:
+    - packages
+
+#- name: Install netaddr
+#  pip:
+#    name: netaddr
+#    extra_args: --user
